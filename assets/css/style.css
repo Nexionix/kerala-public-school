@@ -44,15 +44,27 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
+  width: 100%;
+  max-width: 100%;
   font-family: var(--sans);
   color: var(--ink);
   background: var(--bg);
   line-height: 1.75;
   font-size: 1.04rem;
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+/* Fallback for older browsers: keep the page from sliding sideways. */
+@supports not (overflow-x: clip) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
 }
 
 h1,
